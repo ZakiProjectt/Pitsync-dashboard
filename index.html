@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitSync</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ==================================== HEADERRRRRRRR ==================================== -->
+<header class="site-header">
+
+  <!-- header 1-->
+  <div class="navbar">
+    <div class="navbar__brand">
+      <span class="navbar__logo-text">Pit<span class="navbar__logo-accent">Sync</span></span>
+    </div>
+
+    <div class="navbar__search">
+      <input type="text" class="navbar__search-input" placeholder="Search">
+      <button class="navbar__search-btn" aria-label="Search">
+        <img src="/assets/search.png" alt="">
+      </button>
+    </div>
+
+    <div class="navbar__actions">
+      <button class="navbar__pill navbar__pill--lang">
+        <img src="/assets/arrowBawah.png" alt="" class="navbar__pill-arrow">
+        <span>English</span>
+        <img src="/assets/globe.png" alt="" class="navbar__pill-icon">
+      </button>
+      <button class="navbar__pill navbar__pill--user">
+        Zaki Fauzan <img src="/assets/user.png" alt="" class="navbar__pill-icon">
+      </button>
+    </div>
+  </div>
+
+  <!---header 2-->
+  <div class="sub-header"> 
+    <nav class="sub-header__menu">
+      <a href="#" class="sub-header__menu-item sub-header__menu-item--active">Overview</a>
+      <a href="#" class="sub-header__menu-item">Fleet Status</a>
+      <a href="#" class="sub-header__menu-item">Live Map</a>
+      <a href="#" class="sub-header__menu-item">Production</a>
+      <a href="#" class="sub-header__menu-item">Maintenance</a>
+      <a href="#" class="sub-header__menu-item">Export Data</a>
+    </nav>
+
+    <div class="sub-header__filters">
+      <div class="sub-header__select-wrap">
+        <select class="sub-header__select">
+          <option>Grasberg Site - Papua</option>
+        </select>
+        <span class="sub-header__select-arrow" aria-hidden="true">▾</span>
+      </div>
+      <div class="sub-header__select-wrap">
+        <select class="sub-header__select">
+          <option>Shift 1 - (07:00 - 15:00)</option>
+        </select>
+        <span class="sub-header__select-arrow" aria-hidden="true">▾</span>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- ============================================= MAIN LAYOUT ============================================= -->
+<main class="dashboard">
+
+  <!-- ============ Key Performance Indicator Cards ============ -->
+  <section class="kpi-row">
+    <div class="kpi-card">
+      <h3 class="kpi-card__title">Total Active Fleet</h3>
+      <p class="kpi-card__value">70 / 75 <span class="kpi-card__unit">Units</span></p>
+      <p class="kpi-card__footnote">
+        <span class="status-dot status-dot--gray"></span>
+        <span class="status-dot status-dot--darkgreen"></span>93.3% Operational</p>
+    </div>
+
+    <div class="kpi-card">
+      <h3 class="kpi-card__title">Fleet Availability</h3>
+      <p class="kpi-card__value">89.9%</p>
+      <p class="kpi-card__footnote">
+        <span class="status-dot status-dot--gray"></span>
+        <span class="status-dot status-dot--darkgreen"></span>+2.1% vs Yesterday</p>
+    </div>
+
+    <div class="kpi-card">
+      <h3 class="kpi-card__title">Active Issues</h3>
+      <p class="kpi-card__value">3 <span class="kpi-card__unit">Alerts</span></p>
+      <p class="kpi-card__footnote">
+        <span class="status-dot status-dot--red"></span>
+        <span class="status-dot status-dot--gray"></span>1 Breakdown, 2 Warnings</p>
+    </div>
+
+    <div class="kpi-card">
+      <h3 class="kpi-card__title">Today's Production</h3>
+      <p class="kpi-card__value">12.450 <span class="kpi-card__unit">Tons</span></p>
+      <p class="kpi-card__footnote"><img src="/assets/statistic.png" alt="" class="kpi-card__icon">Target: 15.000 Tons (83%)</p>
+    </div>
+  </section>
+
+  <!-- Content Grid -->
+  <div class="dashboard__content">
+    <div class="dashboard__main-col">
+
+        <!-- -------------------------------------------------- MAP ------------------------------------------------- -->
+      <section class="map-panel">
+        <div class="map-panel__header">
+          <span class="map-panel__badge">Live</span> Spatial / Map Tracking (Main Focus)
+        </div>
+
+        <div class="map-panel__body">
+          <img src="/assets/maps.png" alt="Pit map" class="map-panel__image">
+
+          <!-- Vehicle state-->
+          <div class="map-legend">
+            <h4 class="map-legend__title">Vehicle State</h4>
+            <p class="map-legend__item"><span class="status-dot status-dot--darkgreen"></span>Hauling/Moving</p>
+            <p class="map-legend__item"><span class="status-dot status-dot--green"></span>Loading</p>
+            <p class="map-legend__item"><span class="status-dot status-dot--yellow"></span>Idling</p>
+            <p class="map-legend__item"><span class="status-dot status-dot--red"></span>Breakdown / Stop</p>
+          </div>
+
+          <!-- Componen dalem map -->
+          <button class="map-pin" style="top:35%; left:67%;" data-unit="hd785">
+            <span class="map-pin__label">HD785 [<span class="status-dot status-dot--yellow"></span>Idling]</span>
+            <img src="/assets/locationIcon.png" alt="Pin Icon" class="map-pin__icon">
+          </button>
+
+          <button class="map-pin" style="top:49%; left:54%;" data-unit="cat6060">
+            <span class="map-pin__label">CAT 6060 [<span class="status-dot status-dot--darkgreen"></span>Moving]</span>
+            <img src="/assets/locationIcon.png" alt="Pin Icon" class="map-pin__icon">
+          </button>
+
+          <button class="map-pin map-pin--selectable" style="top:52%; left:27%;" data-unit="hm400">
+            <span class="map-pin__label">HM400 [<span class="status-dot status-dot--green"></span>Loading]</span>
+            <img src="/assets/locationIcon.png" alt="Pin Icon" class="map-pin__icon">
+          </button>
+
+          <button class="map-pin" style="top:52%; left:76%;" data-unit="pc300">
+            <span class="map-pin__label">PC300 [<span class="status-dot status-dot--red"></span>Stop]</span>
+            <img src="/assets/locationIcon.png" alt="Pin Icon" class="map-pin__icon">
+          </button>
+
+          <span class="map-callout" style="top:62%; left:35%;">Crusher Area</span>
+          <span class="map-callout" style="top:36%; left:20%;">Hauling Roads</span>
+          <span class="map-callout" style="top:50%; left:52%;">Pit Zone</span>
+          <span class="map-callout" style="top:70%; left:68%;">Pit Zones</span>
+
+          <div class="map-panel__zoom">
+            <button aria-label="Zoom out">−</button>
+            <button aria-label="Zoom in">+</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- DETAIL UNIT CARD (hidden by default) ---- -->
+      <section class="detail-card" id="detailCard" hidden>
+        <div class="detail-card__header">
+          Detail Unit
+          <button class="detail-card__close" id="closeDetailCard" aria-label="Close detail unit">✕</button>
+        </div>
+
+        <div class="detail-card__body">
+          <div class="detail-card__truck">
+            <img src="assets/truck.png" alt="Komatsu HM400" id="detailTruckImage">
+          </div>
+
+          <dl class="detail-card__info">
+            <div class="detail-card__row"><dt>Unit ID:</dt><dd id="detailUnitId">DT-109</dd></div>
+            <div class="detail-card__row"><dt>Model Name:</dt><dd id="detailModelName">Komatsu HM400</dd></div>
+            <div class="detail-card__row"><dt>Operator:</dt><dd id="detailOperator">Fauzan .Z</dd></div>
+            <div class="detail-card__row"><dt>Location:</dt><dd id="detailLocation">Hauling Roads</dd></div>
+            <div class="detail-card__row"><dt>Speed / Fuel:</dt><dd id="detailSpeedFuel">25 km/h &nbsp;|&nbsp; 85%</dd></div>
+            <div class="detail-card__row">
+              <dt>Status:</dt>
+              <dd><span class="status-dot status-dot--green"></span><span id="detailStatus">Active - Loading</span></dd>
+            </div>
+          </dl>
+
+          <div class="detail-card__operator">
+            <img src="/assets/operator.png" alt="Operator photo" id="detailOperatorPhoto">
+            <p id="detailOperatorCaption">Fauzan .Z | 24th</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- FLEET TABLE ---- -->
+      <section class="fleet-table">
+        <div class="fleet-table__header">Real-Time Fleet Status Table</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Unit ID</th>
+              <th>Category</th>
+              <th>Model Name</th>
+              <th>Location</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DT-112</td>
+              <td>Dump Truck</td>
+              <td>Komatsu HD785</td>
+              <td>Pit A - Zone 2</td>
+              <td><span class="status-dot status-dot--yellow"></span>Idling - Low Fuel</td>
+            </tr>
+            <tr>
+              <td>EX-201</td>
+              <td>Excavator</td>
+              <td>CAT 6060</td>
+              <td>Pit Zone</td>
+              <td><span class="status-dot status-dot--darkgreen"></span>Active - Hauling</td>
+            </tr>
+            <tr class="fleet-table__row--selectable"
+                data-unit="hm400"
+                data-unit-id="DT-109"
+                data-model="Komatsu HM400"
+                data-operator="Fauzan .Z"
+                data-location="Hauling Roads"
+                data-speed-fuel="25 km/h &nbsp;|&nbsp; 85%"
+                data-status="Active - Loading"
+                data-status-color="green"
+                data-truck-img="assets/unit-hm400.png"
+                data-operator-photo="assets/operator-photo.png"
+                data-operator-caption="Fauzan .Z | 24th">
+              <td>DT-109</td>
+              <td>Dump Truck</td>
+              <td>Komatsu HM400</td>
+              <td>Hauling Roads</td>
+              <td><span class="status-dot status-dot--green"></span>Active - Loading</td>
+            </tr>
+            <tr>
+              <td>EX-110</td>
+              <td>Excavator</td>
+              <td>Komatsu PC300</td>
+              <td>Pit A - Zone 3</td>
+              <td><span class="status-dot status-dot--red"></span>Maintenance - Stop</td>
+            </tr>
+            <tr>
+              <td>DT-104</td>
+              <td>Dump Truck</td>
+              <td>CAT 777G</td>
+              <td>Pit A - Zone 1</td>
+              <td><span class="status-dot status-dot--green"></span>Active - Hauling</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+
+    <!-- ============ SAMPINGGG ============ -->
+    <aside class="sidebar">
+
+      <section class="alerts-panel">
+        <div class="alerts-panel__header">
+          Critical Alerts Panel
+          <a href="#" class="alerts-panel__view-all">View All</a>
+        </div>
+
+        <div class="alerts-panel__item">
+          <p class="alerts-panel__title"><span class="status-dot status-dot--red"></span>Breakdown / Stop:</p>
+          <p class="alerts-panel__desc">PC300 - Engine Overheat (102c) - 13 mins ago</p>
+        </div>
+
+        <div class="alerts-panel__item">
+          <p class="alerts-panel__title"><span class="status-dot status-dot--yellow"></span>Idling (Warning)</p>
+          <p class="alerts-panel__desc">HD785 - Low Fuel Level (12%) - 20 mins ago</p>
+        </div>
+
+        <div class="alerts-panel__item">
+          <p class="alerts-panel__title"><span class="status-dot status-dot--red"></span>Breakdown / Stop</p>
+          <p class="alerts-panel__desc">PC400 - System failure - 45 mins ago</p>
+        </div>
+      </section>
+
+      <section class="production-chart">
+        <div class="production-chart__header">Shift Production Chart</div>
+        <div class="production-chart__summary">
+          <span><strong>Current Shift 1:</strong> 12.450 Tons</span>
+          <span><strong>Target:</strong> 15.000 Tons (83%)</span>
+        </div>
+
+        <ul class="production-chart__bars">
+          <li><span class="production-chart__label">Right Now</span><span class="production-chart__bar" style="width:95%;"></span></li>
+          <li><span class="production-chart__label">1 hour ago</span><span class="production-chart__bar" style="width:83%;"></span></li>
+          <li><span class="production-chart__label">2 hour ago</span><span class="production-chart__bar" style="width:75%;"></span></li>
+          <li><span class="production-chart__label">3 hour ago</span><span class="production-chart__bar" style="width:88%;"></span></li>
+          <li><span class="production-chart__label">4 hour ago</span><span class="production-chart__bar" style="width:35%;"></span></li>
+          <li><span class="production-chart__label">5 hour ago</span><span class="production-chart__bar" style="width:60%;"></span></li>
+          <li><span class="production-chart__label">6 hour ago</span><span class="production-chart__bar" style="width:30%;"></span></li>
+        </ul>
+      </section>
+
+      <section class="weather-panel">
+        <div class="weather-panel__header">Weather &amp; PIT Conditions</div>
+        <div class="weather-panel__grid">
+          <div class="weather-panel__item">
+            <img src="/assets/Weather.png" alt="">
+            <div><strong>Current Weather:</strong><br>Morning - Clear</div>
+          </div>
+          <div class="weather-panel__item">
+            <img src="/assets/visible.png" alt="">
+            <div><strong>Visibility:</strong> 3 km</div>
+          </div>
+          <div class="weather-panel__item">
+            <img src="/assets/Wind.png" alt="">
+            <div><strong>Wind:</strong> 10 km/h</div>
+          </div>
+          <div class="weather-panel__item">
+            <img src="/assets/Road.png" alt="">
+            <div><strong>Road Condition:</strong><br>Dry</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dispatch-panel">
+        <div class="dispatch-panel__header">Quick Dispatch Actions</div>
+        <div class="dispatch-panel__grid">
+          <button class="dispatch-btn">[BROADCAST SAFETY ALERT]</button>
+          <button class="dispatch-btn">[PIN STOP LOG]</button>
+          <button class="dispatch-btn">[ASSIGN MECHANIC]</button>
+          <button class="dispatch-btn">[DEPLOY FUEL TRUCK]</button>
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="navbar__logo-text">Pit<span class="navbar__logo-accent">Sync</span></span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
