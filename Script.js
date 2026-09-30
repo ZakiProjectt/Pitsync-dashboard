@@ -62,16 +62,26 @@
 
   function openDetailCard(unitKey) {
     fillDetailCard(unitKey);
+    
+    // Tampilkan card secara eksplisit
     detailCard.hidden = false;
+    detailCard.style.display = ""; // ATAU "flex" (sesuaikan dengan layout CSS kamu)
+    detailCard.classList.add("is-active");
+
     highlightSelected(unitKey);
     currentUnit = unitKey;
 
-    // Smoothly bring the newly revealed card into view
-    detailCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    // Pakai setTimeout tipis biar browser selesai render baru scroll
+    setTimeout(function () {
+      detailCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 50);
   }
 
   function closeDetailCard() {
     detailCard.hidden = true;
+    detailCard.style.display = "none";
+    detailCard.classList.remove("is-active");
+
     highlightSelected(null);
     currentUnit = null;
   }
